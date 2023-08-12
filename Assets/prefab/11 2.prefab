@@ -98,3 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  bandSira: 3
+  isX: 1
+  tolerans: 0.4

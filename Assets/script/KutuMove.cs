@@ -4,17 +4,97 @@ using UnityEngine;
 
 public class KutuMove : MonoBehaviour
 {
-    public float speed = 0;
+    private bool isPuan = false;
+    public int bandSira;
+    public bool isX = true;
+    private float speed = 0;
+    BoxData boxData;
 
     // Update is called once per frame
-    public void setSpeed(float s)
+    private void Start()
     {
-        speed = s;
+        boxData = transform.parent.GetComponent<BoxData>();
+    }
+    public void setSpeed(float speed)
+    { this.speed = speed; }
+
+
+    void controller()
+    {   if(Input.GetKeyDown(KeyCode.D))
+        { 
+            if (boxData.x1Max > transform.position.x && boxData.x1Min < transform.position.x)
+            {
+                if (bandSira == 1)
+                    isPuan = true;
+                if (boxData.x1Min + boxData.tolerans > transform.position.x)
+                { transform.position += new Vector3(boxData.tolerans, 0, 0); }
+                else if (boxData.x1Max - boxData.tolerans < transform.position.x)
+                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                isX = false;
+            }
+              
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (boxData.x2Max > transform.position.x && boxData.x2Min < transform.position.x)
+            {
+                if (bandSira == 2)
+                    isPuan = true;
+                if (boxData.x2Min + boxData.tolerans > transform.position.x)
+                { transform.position += new Vector3(boxData.tolerans, 0, 0); }
+                else if (boxData.x2Max - boxData.tolerans < transform.position.x)
+                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                isX = false;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            if (boxData.x3Max > transform.position.x && boxData.x3Min < transform.position.x)
+            {
+                if (bandSira == 3)
+                    isPuan = true;
+                if (boxData.x3Min + boxData.tolerans > transform.position.x)
+                { transform.position += new Vector3(boxData.tolerans, 0, 0); }
+                else if (boxData.x3Max - boxData.tolerans < transform.position.x)
+                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                isX = false;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.K) /*|| true*/)
+        {
+            if (bandSira == 4)
+                isPuan = true;
+            if (boxData.x4Max > transform.position.x && boxData.x4Min < transform.position.x)
+            {
+                if (boxData.x4Min + boxData.tolerans > transform.position.x)
+                { transform.position += new Vector3(boxData.tolerans, 0,0); }
+                else if (boxData.x4Max - boxData.tolerans < transform.position.x)
+                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                isX = false;
+            }
+        }
+    }
+    private void Update()
+    {
+        controller();
     }
     private void FixedUpdate()
     {
-        transform.position += new Vector3(speed, 0, 0);
-        if (transform.position.x > 12 || transform.position.y > 4.5f)
+        if (isX) {
+            transform.position += new Vector3(speed, 0, 0);
+        }
+        else
+        {
+            transform.position += new Vector3(0, speed, 0);
+        }
+
+        if (transform.position.x > 12 || transform.position.y > 6)
+        {
+            if (isPuan)
+                boxData.puan++;
+            else
+                boxData.puan -= 10;
             Destroy(this.gameObject);
+        }
     }
 }
