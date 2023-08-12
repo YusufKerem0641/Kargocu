@@ -47,8 +47,6 @@ public class PistonMove : MonoBehaviour
         
         if (pistonData.zeminPositionMaxY > zemin.transform.position.y)
         {
-
-            print("çalýþtý");
             itici.transform.localScale += new Vector3(0, pistonData.artis, 0);
             itici.transform.position += new Vector3(0, pistonData.artis * 0.85f, 0);
             zemin.transform.position += new Vector3(0, pistonData.artis * 1.72f, 0);
@@ -63,7 +61,6 @@ public class PistonMove : MonoBehaviour
     {
         if (pistonData.zeminPositionMinY < zemin.transform.position.y)
         {
-            
             itici.transform.localScale -= new Vector3(0, pistonData.artis, 0);
             itici.transform.position -= new Vector3(0, pistonData.artis * 0.85f, 0);
             zemin.transform.position -= new Vector3(0, pistonData.artis * 1.72f, 0);

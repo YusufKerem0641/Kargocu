@@ -14,7 +14,7 @@ public class KutuMove : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position += new Vector3(speed, 0, 0);
-        if (transform.position.x > 12)
+        if (transform.position.x > 12 || transform.position.y > 4.5f)
             Destroy(this.gameObject);
     }
 }

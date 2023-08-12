@@ -5,6 +5,7 @@ using UnityEngine;
 public class boxCreate : MonoBehaviour
 {
     private BoxData boxData;
+    public GameObject ekranPrfefab;
 
     private void Start()
     {
@@ -24,10 +25,20 @@ public class boxCreate : MonoBehaviour
         newObject.transform.localPosition = new Vector3(-9f, -1.1f, 8f); // Örnek konum
         newObject.transform.localRotation = Quaternion.identity; // Örnek döndürme
 
+        ReplaceGameObjectWithPrefab(boxData.prefabs[randomInt]);
         boxData.count++;
 
         // Bir sonraki çaðrýyý belirtilen gecikmeyle planla
         Invoke("boxCreat", boxData.currentDelay);
+    }
+
+    private void ReplaceGameObjectWithPrefab(GameObject prefab) // prefab yer deðiþtirme
+    {
+        Vector3 position = transform.position;
+        GameObject newObject = Instantiate(prefab);
+        newObject.transform.position = ekranPrfefab.transform.position;
+        Destroy(ekranPrfefab); // Eski GameObject'i sil
+        ekranPrfefab = newObject;
     }
     void Update()
     {
