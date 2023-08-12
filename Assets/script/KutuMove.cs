@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class KutuMove : MonoBehaviour
 {
-    public float speed = 0.001f;
+    public float speed = 0;
 
     // Update is called once per frame
-    void Update()
+    public void setSpeed(float s)
     {
-        
+        speed = s;
     }
     private void FixedUpdate()
     {
         transform.position += new Vector3(speed, 0, 0);
-        if (transform.position.x > 10)
-            transform.position = new Vector3(-8, 0, -2);
+        if (transform.position.x > 12)
+            Destroy(this.gameObject);
     }
 }
