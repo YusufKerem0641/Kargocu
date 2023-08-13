@@ -16,6 +16,7 @@ public class boxCreate : MonoBehaviour
         Invoke("boxCreat", 0);
         if (desDont)
             desDont.GetComponent<DontDestroy>().puanMax = 0;
+        boxData.band.animationSpeed(boxData.bandSpeed);
     }
 
     private void boxCreat()
@@ -43,6 +44,7 @@ public class boxCreate : MonoBehaviour
         Vector3 position = transform.position;
         GameObject newObject = Instantiate(prefab, boxData.parentTransform);
         newObject.transform.position = ekranPrfefab.transform.position;
+        newObject.transform.localScale = ekranPrfefab.transform.localScale;
         Destroy(ekranPrfefab); // Eski GameObject'i sil
         ekranPrfefab = newObject;
     }
@@ -55,7 +57,11 @@ public class boxCreate : MonoBehaviour
             if (boxData.minDelay < boxData.currentDelay)
                 boxData.currentDelay -= boxData.hizlanmaTime;
             if (boxData.maxSpeed > boxData.boxSpeed)
+            { 
                 boxData.boxSpeed += boxData.hizlanmaSpeed;
+                boxData.bandSpeed += boxData.bandSpeedKatsayi;
+                boxData.band.animationSpeed(boxData.bandSpeed);
+            }
         }
         if (boxData.puan > boxData.maxPuan)
         {
@@ -72,6 +78,7 @@ public class boxCreate : MonoBehaviour
         {
             LoadNextScene();
         }
+        
     }
     public void LoadNextScene()
     {

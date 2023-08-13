@@ -16,7 +16,9 @@ public class KutuMove : MonoBehaviour
         boxData = transform.parent.GetComponent<BoxData>();
     }
     public void setSpeed(float speed)
-    { this.speed = speed; }
+    {
+        this.speed = speed; 
+    }
 
 
     void controller()
@@ -80,25 +82,29 @@ public class KutuMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (isX) {
-            transform.position += new Vector3(speed, 0, 0);
-        }
-        else if (!isX && transform.position.y < 1)
+        if (speed != 0)
         {
-            transform.position += new Vector3(0, 0.5f, 0);
-        }
-        else
-        {
-            transform.position += new Vector3(0, speed, 0);
-        }
-
-        if (transform.position.x > 12 || transform.position.y > 6)
-        {
-            if (isPuan)
-                boxData.puan++;
+            if (isX)
+            {
+                transform.position += new Vector3(boxData.boxSpeed, 0, 0);
+            }
+            else if (!isX && transform.position.y < 1)
+            {
+                transform.position += new Vector3(0, 0.5f, 0);
+            }
             else
-                boxData.puan -= 10;
-            Destroy(this.gameObject);
+            {
+                transform.position += new Vector3(0, boxData.boxSpeed, 0);
+            }
+
+            if (transform.position.x > 12 || transform.position.y > 6)
+            {
+                if (isPuan)
+                    boxData.puan++;
+                else
+                    boxData.puan -= 10;
+                Destroy(this.gameObject);
+            }
         }
     }
 }

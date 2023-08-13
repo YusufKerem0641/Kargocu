@@ -10,8 +10,13 @@ public class BoxData : MonoBehaviour
     public float currentDelay = 10.0f;
     public float minDelay = 1f;
     public int count = 1;
+
+    public BandHýz band;
     public float boxSpeed = 0.005f;
     public float maxSpeed = 0.1f;
+
+    public float bandSpeed = 1;
+    public float bandSpeedKatsayi = 0.1f;
 
     public float x1Max;
     public float x1Min;
