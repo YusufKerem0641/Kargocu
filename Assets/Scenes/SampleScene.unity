@@ -2642,14 +2642,14 @@ MonoBehaviour:
   - {fileID: 3383634814878147250, guid: 8d3c8ffb00036b64e8a4c01d6a1d3749, type: 3}
   - {fileID: 3383634814878147250, guid: 2a1a1895c70adf84983615b60215aac2, type: 3}
   parentTransform: {fileID: 2078108624}
-  currentDelay: 10
+  currentDelay: 6
   minDelay: 1
   count: 5
   band: {fileID: 467792347}
-  boxSpeed: 0.01
+  boxSpeed: 0.04
   maxSpeed: 0.1
-  bandSpeed: 1.272
-  bandSpeedKatsayi: 0.1274
+  bandSpeed: 5.112
+  bandSpeedKatsayi: 0.127
   x1Max: -1.6
   x1Min: -3.35
   x2Max: 1.35
@@ -2662,7 +2662,7 @@ MonoBehaviour:
   maxPuan: 0
   puanText: {fileID: 779383831}
   tolerans: 0.4
-  hizlanmaCount: 2
+  hizlanmaCount: 3
   hizlanmaKatSayisi: 0
   hizlanmaTime: 0.1
   hizlanmaSpeed: 0.001
