@@ -12,6 +12,7 @@ public class SiralıYazma : MonoBehaviour
     private int currentTextIndex = 0;
     private int isTypingDurum = 0;
     public GameObject[] activeGameObject;
+    public GameObject[] dontActiveGameObject;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class SiralıYazma : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 
 
@@ -33,11 +34,13 @@ public class SiralıYazma : MonoBehaviour
             }
             else if (isTypingDurum == 2)
             {
+
                 isTypingDurum = 3;
                 foreach (GameObject go in activeGameObject)
                 {
                     go.SetActive(true);
                 }
+                displayText.text = "";
             }
             else if (isTypingDurum == 3)
             {
@@ -82,7 +85,7 @@ public class SiralıYazma : MonoBehaviour
         }
 
         isTypingDurum = 0;
-        yield return new WaitForSeconds(1.0f); // Metni tamamlanınca bir saniye bekle
+        yield return new WaitForSeconds(0.1f); // Metni tamamlanınca bir saniye bekle
         StartTypingNextText(); // Bir sonraki metne geç
     }
 

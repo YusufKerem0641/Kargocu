@@ -7,7 +7,7 @@ public class KutuMove : MonoBehaviour
     private bool isPuan = false;
     public int bandSira;
     public bool isX = true;
-    private float speed = 0;
+    public float speed = 0;
     BoxData boxData;
 
     // Update is called once per frame
