@@ -8,8 +8,10 @@ public class BoxData : MonoBehaviour
     public GameObject[] prefabs; // Prefab nesnesi
     public Transform parentTransform; // Alt nesne olarak eklenecek üst nesne
     public float currentDelay = 10.0f;
+    public float minDelay = 1f;
     public int count = 1;
     public float boxSpeed = 0.005f;
+    public float maxSpeed = 0.1f;
 
     public float x1Max;
     public float x1Min;
@@ -21,6 +23,7 @@ public class BoxData : MonoBehaviour
     public float x4Min;
 
     public int puan;
+    public int maxPuan;
     public Text puanText;
 
     public float tolerans = 0.4f;

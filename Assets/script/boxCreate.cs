@@ -7,11 +7,15 @@ public class boxCreate : MonoBehaviour
 {
     private BoxData boxData;
     public GameObject ekranPrfefab;
+    GameObject desDont;
 
     private void Start()
     {
+        desDont = GameObject.Find("dontDestroy");
         boxData = GetComponent<BoxData>();
         Invoke("boxCreat", 0);
+        if (desDont)
+            desDont.GetComponent<DontDestroy>().puanMax = 0;
     }
 
     private void boxCreat()
@@ -24,7 +28,7 @@ public class boxCreate : MonoBehaviour
         
 
         // Yeni nesneyi istediðiniz konum ve döndürmeyle yerleþtirme (opsiyonel)
-        newObject.transform.localPosition = new Vector3(-9f, -1.1f, 8f); // Örnek konum
+        newObject.transform.localPosition = new Vector3(-9f, -1.6f, 8f); // Örnek konum
         newObject.transform.localRotation = Quaternion.identity; // Örnek döndürme
 
         ReplaceGameObjectWithPrefab(boxData.prefabs[randomInt]);
@@ -48,8 +52,16 @@ public class boxCreate : MonoBehaviour
         if (boxData.count % boxData.hizlanmaCount == 0)
         {
             boxData.count = 1;
-            boxData.currentDelay -= boxData.hizlanmaTime;
-            boxData.boxSpeed += boxData.hizlanmaSpeed;
+            if (boxData.minDelay < boxData.currentDelay)
+                boxData.currentDelay -= boxData.hizlanmaTime;
+            if (boxData.maxSpeed > boxData.boxSpeed)
+                boxData.boxSpeed += boxData.hizlanmaSpeed;
+        }
+        if (boxData.puan > boxData.maxPuan)
+        {
+            boxData.maxPuan = boxData.puan;
+            if (desDont)
+                desDont.GetComponent<DontDestroy>().puanMax = boxData.maxPuan;
         }
     }
     void Update()

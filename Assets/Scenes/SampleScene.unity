@@ -2559,7 +2559,7 @@ MonoBehaviour:
   - {fileID: 3383634814878147250, guid: 2a1a1895c70adf84983615b60215aac2, type: 3}
   parentTransform: {fileID: 2078108624}
   currentDelay: 10
-  count: 1
+  count: 5
   boxSpeed: 0.01
   x1Max: -1.6
   x1Min: -3.35
@@ -2570,6 +2570,7 @@ MonoBehaviour:
   x4Max: 7.2
   x4Min: 5.7
   puan: 0
+  maxPuan: 0
   puanText: {fileID: 779383831}
   tolerans: 0.4
   hizlanmaCount: 2

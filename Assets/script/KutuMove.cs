@@ -27,9 +27,9 @@ public class KutuMove : MonoBehaviour
                 if (bandSira == 1)
                     isPuan = true;
                 if (boxData.x1Min + boxData.tolerans > transform.position.x)
-                { transform.position += new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x1Min + boxData.tolerans, transform.position.y, transform.position.z); }
                 else if (boxData.x1Max - boxData.tolerans < transform.position.x)
-                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x1Max - boxData.tolerans, transform.position.y, transform.position.z); }
                 isX = false;
             }
               
@@ -41,9 +41,9 @@ public class KutuMove : MonoBehaviour
                 if (bandSira == 2)
                     isPuan = true;
                 if (boxData.x2Min + boxData.tolerans > transform.position.x)
-                { transform.position += new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x2Min + boxData.tolerans, transform.position.y, transform.position.z); }
                 else if (boxData.x2Max - boxData.tolerans < transform.position.x)
-                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x2Max - boxData.tolerans, transform.position.y, transform.position.z); }
                 isX = false;
             }
         }
@@ -54,9 +54,9 @@ public class KutuMove : MonoBehaviour
                 if (bandSira == 3)
                     isPuan = true;
                 if (boxData.x3Min + boxData.tolerans > transform.position.x)
-                { transform.position += new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x3Min + boxData.tolerans, transform.position.y, transform.position.z); }
                 else if (boxData.x3Max - boxData.tolerans < transform.position.x)
-                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x3Max - boxData.tolerans, transform.position.y, transform.position.z); }
                 isX = false;
             }
         }
@@ -67,9 +67,9 @@ public class KutuMove : MonoBehaviour
             if (boxData.x4Max > transform.position.x && boxData.x4Min < transform.position.x)
             {
                 if (boxData.x4Min + boxData.tolerans > transform.position.x)
-                { transform.position += new Vector3(boxData.tolerans, 0,0); }
+                { transform.position = new Vector3(boxData.x4Min + boxData.tolerans, transform.position.y, transform.position.z); }
                 else if (boxData.x4Max - boxData.tolerans < transform.position.x)
-                { transform.position -= new Vector3(boxData.tolerans, 0, 0); }
+                { transform.position = new Vector3(boxData.x4Max - boxData.tolerans, transform.position.y, transform.position.z); }
                 isX = false;
             }
         }
@@ -82,6 +82,10 @@ public class KutuMove : MonoBehaviour
     {
         if (isX) {
             transform.position += new Vector3(speed, 0, 0);
+        }
+        else if (!isX && transform.position.y < 1)
+        {
+            transform.position += new Vector3(0, 0.5f, 0);
         }
         else
         {
