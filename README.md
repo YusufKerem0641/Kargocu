@@ -1,7 +1,5 @@
 # Kargocu - Hızlı Oynanışlı Kargo Oyunu
 
-![Kargocu](screenshot.png)
-
 **Kargocu**, 48 saat içinde geliştirilen bir Game Jam projesidir. Oyun, kargo şirketinde meydana gelen bir arıza sonucu paletlerin bozulmasıyla başlar. Oyuncuların amacı, bu bozulmuş paletlerden gelen kutuları doğru bantlara taşıyarak düzeni sağlamaktır. Hızlı refleksler ve zaman yönetimi oyunun temel unsurlarıdır.
 
 Bu proje, Kıraathene Game Jam'de tema olarak "hızlı oynanış" seçildiğinde 3 kişilik bir ekip tarafından geliştirilmiştir.
