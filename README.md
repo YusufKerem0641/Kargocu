@@ -13,5 +13,5 @@ Bu proje, Kıraathene Game Jam'de tema olarak "hızlı oynanış" seçildiğinde
 
 ## Ekran Görüntüleri
 
-![Oyun Görüntüsü 1](Screenshot/1.png)
 ![Oyun Görüntüsü 2](Screenshot/2.png)
+![Oyun Görüntüsü 1](Screenshot/1.png)
